@@ -89,6 +89,9 @@ export default class Body extends Component {
     //   },
     // ];
     const { movies } = this.state;
+    const listOfMovies = movies.map((item) => {
+      return <Cardcontent key={item.id} src={imgUrl + item.poster_path} title={item.title} />;
+    });
     let url = "#";
     return (
       <Fragment>
@@ -104,11 +107,7 @@ export default class Body extends Component {
                 Show more
               </a>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-6">
-              {movies.map((item) => {
-                return <Cardcontent key={item.id} src={imgUrl + item.poster_path} title={item.title} />;
-              })}
-            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-6">{listOfMovies}</div>
           </div>
         </div>
       </Fragment>
