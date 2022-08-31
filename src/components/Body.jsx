@@ -2,9 +2,8 @@ import axios from "axios";
 import React, { Component, Fragment } from "react";
 import Cardcontent from "./Cardcontent";
 
-// const urlbase = "https://api.themoviedb.org/3/movie/";
-// const urlHeadLine = `${urlbase}now_playing?api_key=${process.env.REACT_APP_API_KEY}`;
-// ini gak work
+const urlbase = "https://api.themoviedb.org/3/movie/";
+const urlHeadLine = `${urlbase}now_playing?api_key=${process.env.REACT_APP_API_KEY}`;
 const imgUrl = "https://image.tmdb.org/t/p/original/";
 
 export default class Body extends Component {
@@ -15,7 +14,7 @@ export default class Body extends Component {
   componentDidMount() {
     const self = this;
     axios
-      .get("https://api.themoviedb.org/3/movie/now_playing?api_key=89c26488d2f4730b9c30aaa2815ae840")
+      .get(urlHeadLine)
       .then((res) => {
         self.setState({
           movies: res.data.results,
