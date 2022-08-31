@@ -12,7 +12,7 @@ export default class Cardcontent extends Component {
           </a>
 
           <div className="flex flex-col text-center">
-            <a href={url} className="text-gray-800 hover:text-gray-500 text-lg lg:text-xl font-bold transition duration-100">
+            <a href={url} className="text-gray-800 dark:text-white hover:text-gray-500 text-lg lg:text-xl font-bold transition duration-100">
               {this.props.title}
             </a>
           </div>
