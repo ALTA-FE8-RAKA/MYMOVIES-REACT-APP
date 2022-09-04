@@ -8,14 +8,14 @@ class Cardcontent extends Component {
         {/* <!-- Awal Cardcontent --> */}
         <div>
           <div>
-            <button className="h-100 group mb-2 block overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3" onClick={this.props.onClick}>
+            <div className="h-100 group mb-2 block overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3" onClick={this.props.onClick}>
               <img aria-hidden src={this.props.src} loading="lazy" alt="/" className="h-90 w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-            </button>
+            </div>
 
             <div className="flex flex-col text-center">
-              <button className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 dark:text-white lg:text-xl" onClick={this.props.onClick}>
+              <div className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 dark:text-white lg:text-xl" onClick={this.props.onClick}>
                 {this.props.title}
-              </button>
+              </div>
             </div>
           </div>
         </div>
