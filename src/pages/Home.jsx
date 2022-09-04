@@ -20,6 +20,7 @@ function Home() {
     checkbox.addEventListener("click", function () {
       checkbox.checked ? html.classList.add("dark") : html.classList.remove("dark");
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getData = async () => {
