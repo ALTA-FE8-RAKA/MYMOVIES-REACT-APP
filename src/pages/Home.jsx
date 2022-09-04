@@ -27,7 +27,6 @@ function Home() {
       .get(urlHeadLine)
       .then((res) => {
         setMovies(res.data.results);
-        console.log(res.data.results);
       })
       .catch((err) => {
         alert(err.message);
@@ -65,7 +64,7 @@ function Home() {
             {movies.map((item) => {
               return (
                 <div key={item.id}>
-                  <Cardcontent src={imgUrl + item.poster_path} title={item.title} onClick={() => handleDetailPage(item)} />
+                  <Cardcontent src={imgUrl + item.poster_path} title={item.title} klik={() => handleDetailPage(item)} />
                 </div>
               );
             })}
