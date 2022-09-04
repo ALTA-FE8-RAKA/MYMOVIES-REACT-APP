@@ -1,10 +1,7 @@
-import React, { Component } from "react";
-import { withRouter } from "../withRouter";
+import React from "react";
 
-export class NotFound extends Component {
-  render() {
-    return <div>NotFound</div>;
-  }
-}
+const NotFound = () => {
+  return <div>NotFound</div>;
+};
 
-export default withRouter(NotFound);
+export default NotFound;
