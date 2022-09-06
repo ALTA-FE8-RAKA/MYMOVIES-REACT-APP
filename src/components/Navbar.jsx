@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
-import { FilmIcon } from "@heroicons/react/24/outline";
-import { HomeIcon } from "@heroicons/react/24/outline";
+import { FilmIcon, HomeIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import FavoriteContext from "../context/FavoriteContext";
 
 const Navbar = () => {
+  const { favMovies } = useContext(FavoriteContext);
+
   return (
     <Fragment>
       <nav className="border-gray-200 bg-white px-2 py-2.5 drop-shadow-md dark:bg-gray-900 sm:px-4">
@@ -67,12 +70,22 @@ const Navbar = () => {
                 placeholder="Search..."
               />
             </div>
-            <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
+            <ul className="mt-4 mr-10 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
               <li>
-                <Link to="/" className="block rounded bg-indigo-700 py-2 pr-4 pl-3 hover:text-slate-500 dark:text-white dark:hover:text-neutral-400 md:bg-transparent md:p-0 md:text-indigo-700" aria-current="page">
-                  <HomeIcon className="mr-1 inline-block h-6 w-6 pb-2 sm:h-9" />
-                  Home
-                </Link>
+                <div className="block bg-indigo-700 hover:text-slate-500 dark:text-white dark:hover:text-neutral-400 md:bg-transparent md:p-0 md:text-indigo-700">
+                  <Link to="/" aria-current="page">
+                    <HomeIcon className="mr-1 inline-block h-6 w-6 pb-2 sm:h-9" />
+                    Home
+                  </Link>
+                </div>
+              </li>
+              <li className="poi self-center">
+                <div className="block bg-indigo-700 hover:text-slate-500 dark:text-white dark:hover:text-neutral-400 md:bg-transparent md:p-0 md:text-indigo-700">
+                  <Link to="/favorites">
+                    <HeartIcon className="mr-1 inline-block h-6 w-6 sm:h-9" />
+                    Favorite {favMovies.length}
+                  </Link>
+                </div>
               </li>
             </ul>
             <div className="flex">

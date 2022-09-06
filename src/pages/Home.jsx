@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Cardcontent from "../components/Cardcontent";
+import FavoriteContext from "../context/FavoriteContext";
 
 function Home() {
   const urlbase = "https://api.themoviedb.org/3/movie/";
   const urlHeadLine = `${urlbase}now_playing?api_key=${process.env.REACT_APP_API_KEY}`;
-  const imgUrl = "https://image.tmdb.org/t/p/original/";
   const navigate = useNavigate();
-
+  const { addToFavorites } = useContext(FavoriteContext);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function Home() {
     navigate(`/details/${item.id}`, {
       state: {
         title: item.title,
-        image: imgUrl + item.poster_path,
+        image: process.env.REACT_APP_IMAGE_BASE + item.poster_path,
         synopsis: item.overview,
         release: item.release_date,
         popularity: item.popularity,
@@ -65,7 +65,13 @@ function Home() {
             {movies.map((item) => {
               return (
                 <div key={item.id}>
-                  <Cardcontent src={imgUrl + item.poster_path} title={item.title} klik={() => handleDetailPage(item)} />
+                  <Cardcontent
+                    src={process.env.REACT_APP_IMAGE_BASE + item.poster_path}
+                    title={item.title}
+                    onClickDetail={() => handleDetailPage(item)}
+                    onClickFavorite={() => addToFavorites(item)}
+                    goToFavorite={() => navigate("/favorites")}
+                  />
                 </div>
               );
             })}
