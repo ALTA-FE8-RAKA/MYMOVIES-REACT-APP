@@ -5,14 +5,14 @@ import Details from "./pages/Details";
 import NotFound from "./pages/NotFound";
 import Favorite from "./pages/Favorite";
 import { Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { FavoriteProvider } from "./context/FavoriteContext";
 
 const App = () => {
   return (
     <>
       <FavoriteProvider>
-        <BrowserRouter>
+        <Router>
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -20,7 +20,7 @@ const App = () => {
             <Route path="/favorites" element={<Favorite />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </Router>
       </FavoriteProvider>
     </>
   );
